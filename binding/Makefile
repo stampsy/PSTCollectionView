@@ -8,9 +8,6 @@ CONFIGURATION=Release
 
 all: PSTCollectionView.dll
 
-debug: CONFIGURATION = Debug
-debug: all
-
 lib$(TARGET)-i386.a: $(PROJECT)
 	$(XBUILD) -project $(PROJECT) -target $(TARGET) -sdk iphonesimulator -configuration $(CONFIGURATION) clean build
 	-mv $(PROJECT_ROOT)/build/$(CONFIGURATION)-iphonesimulator/lib$(TARGET).a $@
@@ -28,11 +25,12 @@ lib$(TARGET).a: lib$(TARGET)-i386.a lib$(TARGET)-armv7.a #lib$(TARGET)-armv7s.a
 
 PSTCollectionView.dll: ApiDefinition.cs StructsAndEnums.cs Extra.cs AssemblyInfo.cs lib$(TARGET).a
 	mkdir -p ios
+	mkdir -p bin/$(CONFIGURATION)
 	$(BTOUCH) -unsafe ApiDefinition.cs -s StructsAndEnums.cs --tmpdir=ios --sourceonly ios/sources.list
-	$(SMCS) -noconfig -o- -out:$@ -res:lib$(TARGET).a AssemblyInfo.cs StructsAndEnums.cs Extra.cs @ios/sources.list -target:library -unsafe -reference:/Developer/MonoTouch/usr/lib/mono/2.1/System.dll -reference:/Developer/MonoTouch/usr/lib/mono/2.1/monotouch.dll -reference:/Developer/MonoTouch/usr/lib/mono/2.1/System.Core.dll  
+	$(SMCS) -noconfig -o- -out:bin/$(CONFIGURATION)/$@ -res:lib$(TARGET).a AssemblyInfo.cs StructsAndEnums.cs Extra.cs @ios/sources.list -target:library -unsafe -reference:/Developer/MonoTouch/usr/lib/mono/2.1/System.dll -reference:/Developer/MonoTouch/usr/lib/mono/2.1/monotouch.dll -reference:/Developer/MonoTouch/usr/lib/mono/2.1/System.Core.dll  
 
 clean: 
-	-rm -f *.a *.dll
+	-rm -f *.a bin/$(CONFIGURATION)/*.dll
 
 clean-all: clean
 	-rm -rf ios
