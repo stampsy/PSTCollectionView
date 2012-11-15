@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleCollectionView", "SimpleCollectionView\SimpleCollectionView.csproj", "{384451B5-3210-4F89-B5DF-4822101D265D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PSTCollectionView", "..\..\PSTCollectionView.csproj", "{48E5D3D6-98FF-4D5F-B30E-63D26CE93141}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|iPhoneSimulator = Debug|iPhoneSimulator
@@ -25,6 +27,18 @@ Global
 		{384451B5-3210-4F89-B5DF-4822101D265D}.Release|iPhone.Build.0 = Release|iPhone
 		{384451B5-3210-4F89-B5DF-4822101D265D}.Release|iPhoneSimulator.ActiveCfg = Release|iPhoneSimulator
 		{384451B5-3210-4F89-B5DF-4822101D265D}.Release|iPhoneSimulator.Build.0 = Release|iPhoneSimulator
+		{48E5D3D6-98FF-4D5F-B30E-63D26CE93141}.Ad-Hoc|iPhone.ActiveCfg = Release|Any CPU
+		{48E5D3D6-98FF-4D5F-B30E-63D26CE93141}.Ad-Hoc|iPhone.Build.0 = Release|Any CPU
+		{48E5D3D6-98FF-4D5F-B30E-63D26CE93141}.AppStore|iPhone.ActiveCfg = Release|Any CPU
+		{48E5D3D6-98FF-4D5F-B30E-63D26CE93141}.AppStore|iPhone.Build.0 = Release|Any CPU
+		{48E5D3D6-98FF-4D5F-B30E-63D26CE93141}.Debug|iPhone.ActiveCfg = Release|Any CPU
+		{48E5D3D6-98FF-4D5F-B30E-63D26CE93141}.Debug|iPhone.Build.0 = Release|Any CPU
+		{48E5D3D6-98FF-4D5F-B30E-63D26CE93141}.Debug|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{48E5D3D6-98FF-4D5F-B30E-63D26CE93141}.Debug|iPhoneSimulator.Build.0 = Release|Any CPU
+		{48E5D3D6-98FF-4D5F-B30E-63D26CE93141}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{48E5D3D6-98FF-4D5F-B30E-63D26CE93141}.Release|iPhone.Build.0 = Release|Any CPU
+		{48E5D3D6-98FF-4D5F-B30E-63D26CE93141}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{48E5D3D6-98FF-4D5F-B30E-63D26CE93141}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = SimpleCollectionView\SimpleCollectionView.csproj

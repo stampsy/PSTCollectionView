@@ -85,9 +85,6 @@
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="monotouch" />
-    <Reference Include="PSTCollectionView">
-      <HintPath>..\..\..\PSTCollectionView.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -105,5 +102,11 @@
   <ItemGroup>
     <Content Include="monkey.png" />
     <Content Include="placeholder.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\PSTCollectionView.csproj">
+      <Project>{48E5D3D6-98FF-4D5F-B30E-63D26CE93141}</Project>
+      <Name>PSTCollectionView</Name>
+    </ProjectReference>
   </ItemGroup>
 </Project>
