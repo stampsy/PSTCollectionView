@@ -193,7 +193,15 @@ namespace PSTCollectionView {
 		[Export ("numberOfItemsInSection:")]
 		int NumberOfItemsInSection (int section);
 		
-	}
+        [ExportAttribute("reloadData")]
+        void ReloadData();
+
+        [Export ("insertItemsAtIndexPaths:")]
+        void InsertItems(NSIndexPath[] indexPaths);
+
+        [Export ("deleteItemsAtIndexPaths:")]
+        void DeleteItems(NSIndexPath[] indexPaths);
+    }
 
 	[BaseType (typeof (NSObject))]
 	[Model]
@@ -313,6 +321,10 @@ namespace PSTCollectionView {
 	[BaseType (typeof (PSTCollectionViewController))]
 	interface PSUICollectionViewController {
 	}
+
+    [BaseType (typeof (PSTCollectionView))]
+    interface PSUICollectionView {
+    }
 
 	[BaseType (typeof (UIView))]
 	interface PSTCollectionReusableView {
