@@ -16,3 +16,6 @@ profile
 
 # OS X
 .DS_Store
+
+# MonoDevelop
+*.userprefs
