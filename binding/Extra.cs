@@ -72,10 +72,12 @@ namespace PSTCollectionView {
 		[Export ("layoutAttributesForElementsInRect:")]
 		public virtual PSTCollectionViewLayoutAttributes[] LayoutAttributesForElementsInRect (System.Drawing.RectangleF rect)
 		{
+
+            //TMP
 			if (IsDirectBinding) {
-				return NSArray.ArrayFromHandle<PSTCollectionViewLayoutAttributes>(MonoTouch.ObjCRuntime.Messaging.IntPtr_objc_msgSend_RectangleF (this.Handle, selLayoutAttributesForElementsInRect_, rect));
+				return NSArray.ArrayFromHandle<PSUICollectionViewLayoutAttributes>(MonoTouch.ObjCRuntime.Messaging.IntPtr_objc_msgSend_RectangleF (this.Handle, selLayoutAttributesForElementsInRect_, rect));
 			} else {
-				return NSArray.ArrayFromHandle<PSTCollectionViewLayoutAttributes>(MonoTouch.ObjCRuntime.Messaging.IntPtr_objc_msgSendSuper_RectangleF (this.SuperHandle, selLayoutAttributesForElementsInRect_, rect));
+				return NSArray.ArrayFromHandle<PSUICollectionViewLayoutAttributes>(MonoTouch.ObjCRuntime.Messaging.IntPtr_objc_msgSendSuper_RectangleF (this.SuperHandle, selLayoutAttributesForElementsInRect_, rect));
 			}
 		}
 
@@ -87,6 +89,23 @@ namespace PSTCollectionView {
 		}
 	}
 
+    public partial class PSUICollectionViewLayout {
+        
+        static readonly IntPtr selLayoutAttributesForElementsInRect_ = Selector.GetHandle ("layoutAttributesForElementsInRect:");
+        
+        [Export ("layoutAttributesForElementsInRect:")]
+        public new virtual PSTCollectionViewLayoutAttributes[] LayoutAttributesForElementsInRect (System.Drawing.RectangleF rect)
+        {
+            Console.WriteLine("HERE");
+
+            if (IsDirectBinding) {
+                return NSArray.ArrayFromHandle<PSUICollectionViewLayoutAttributes>(MonoTouch.ObjCRuntime.Messaging.IntPtr_objc_msgSend_RectangleF (this.Handle, selLayoutAttributesForElementsInRect_, rect));
+            } else {
+                return NSArray.ArrayFromHandle<PSUICollectionViewLayoutAttributes>(MonoTouch.ObjCRuntime.Messaging.IntPtr_objc_msgSendSuper_RectangleF (this.SuperHandle, selLayoutAttributesForElementsInRect_, rect));
+            }
+        }
+    }
+
 	public partial class PSTCollectionReusableView {
 		public PSTCollectionReusableView (RectangleF frame) : base (frame) {
 		}
@@ -94,6 +113,11 @@ namespace PSTCollectionView {
 
 	public partial class PSTCollectionViewCell {
 		public PSTCollectionViewCell (RectangleF frame) : base (frame) {
+		}
+	}
+
+	public partial class PSUICollectionViewCell {
+		public PSUICollectionViewCell (RectangleF frame) : base (frame) {
 		}
 	}
 }

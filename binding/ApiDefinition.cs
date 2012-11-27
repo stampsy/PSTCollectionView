@@ -63,7 +63,11 @@ namespace PSTCollectionView {
 		PSTCollectionViewScrollDirection ScrollDirection { get; set; }
 			
 	}
-	
+
+	[BaseType (typeof (PSTCollectionViewFlowLayout))]
+	interface PSUICollectionViewFlowLayout {
+	}
+		
 	[Static]
 	interface PSTCollectionElementKindSectionKey {
 		[Field("PSTCollectionElementKindSectionHeader", "__Internal")]
@@ -106,6 +110,10 @@ namespace PSTCollectionView {
 		PSTCollectionViewLayoutAttributes CreateForCell (NSIndexPath indexPath);
 	}
 
+	[BaseType (typeof(PSTCollectionViewLayoutAttributes))]
+	interface PSUICollectionViewLayoutAttributes {
+	}
+
 	[BaseType (typeof (NSObject))]
 	interface PSTCollectionViewLayout {
 		[Export ("collectionView")]
@@ -142,6 +150,10 @@ namespace PSTCollectionView {
 
 		[Export ("finalLayoutAttributesForDeletedItemAtIndexPath:")]
 		PSTCollectionViewLayoutAttributes FinalLayoutAttributesForDeletedItem (NSIndexPath itemIndexPath);
+	}
+
+	[BaseType (typeof(PSTCollectionViewLayout))]
+	interface PSUICollectionViewLayout {
 	}
 
 	[BaseType (typeof (UIScrollView))]
@@ -202,6 +214,10 @@ namespace PSTCollectionView {
         [Export ("deleteItemsAtIndexPaths:")]
         void DeleteItems(NSIndexPath[] indexPaths);
     }
+
+	[BaseType (typeof (PSTCollectionView))]
+	interface PSUICollectionView {
+	}
 
 	[BaseType (typeof (NSObject))]
 	[Model]
@@ -321,11 +337,7 @@ namespace PSTCollectionView {
 	[BaseType (typeof (PSTCollectionViewController))]
 	interface PSUICollectionViewController {
 	}
-
-    [BaseType (typeof (PSTCollectionView))]
-    interface PSUICollectionView {
-    }
-
+	
 	[BaseType (typeof (UIView))]
 	interface PSTCollectionReusableView {
 		[Export ("reuseIdentifier")]
@@ -362,5 +374,16 @@ namespace PSTCollectionView {
 		UIView SelectedBackgroundView { get; set; }
 	}
 
+	[BaseType (typeof (PSTCollectionViewCell))]
+	interface PSUICollectionViewCell {
+		[Export ("applyLayoutAttributes:")]
+		void ApplyLayoutAttributes (PSUICollectionViewLayoutAttributes layoutAttributes);
+		
+		[Export ("willTransitionFormLayout:toLayout:")]
+		void WillTransition(PSUICollectionViewLayout fromLayout, PSUICollectionViewLayout toLayout);
+		
+		[Export ("didTransitionFromLayout:toLayout:")]
+		void DidTransition(PSUICollectionViewLayout fromLayout, PSUICollectionViewLayout toLayout);
+	}
 
 }
